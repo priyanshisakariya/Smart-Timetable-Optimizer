@@ -1,0 +1,250 @@
+/* ========================================
+   MY TIMETABLE
+======================================== */
+
+.student-timetable {
+    width: 100%;
+    max-width: 1150px;
+
+    margin: 0 auto;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.student-timetable-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+}
+
+.student-timetable-header h1 {
+    margin: 0;
+
+    color: var(--primary-color);
+
+    font-size: 32px;
+
+    font-weight: 700;
+}
+
+.student-timetable-header p {
+    margin: 8px 0 0;
+
+    color: var(--text-secondary);
+
+    font-size: 16px;
+}
+
+.timetable-header-icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background-color: #e6f7f5;
+
+    border-radius: 12px;
+
+    color: var(--primary-color);
+
+    font-size: 23px;
+}
+
+
+/* ========================================
+   TABLE CARD
+======================================== */
+
+.timetable-card {
+    width: 100%;
+
+    background-color: var(--white);
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 5px 20px rgba(15, 118, 110, 0.10);
+
+    overflow: hidden;
+}
+
+
+/* ========================================
+   CARD HEADER
+======================================== */
+
+.timetable-card-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 22px 25px;
+
+    border-bottom: 1px solid #e5eeee;
+}
+
+.timetable-card-header h2 {
+    margin: 0;
+
+    color: var(--primary-color);
+
+    font-size: 20px;
+}
+
+.timetable-card-header span {
+    padding: 7px 12px;
+
+    background-color: #e6f7f5;
+
+    border-radius: 7px;
+
+    color: var(--primary-color);
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+/* ========================================
+   TABLE CONTAINER
+======================================== */
+
+.timetable-table-container {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+
+/* ========================================
+   TABLE
+======================================== */
+
+.timetable-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 850px;
+}
+
+
+/* ========================================
+   TABLE HEADER
+======================================== */
+
+.timetable-table thead {
+    background-color: #f5fbfa;
+}
+
+.timetable-table th {
+    padding: 15px 18px;
+
+    text-align: left;
+
+    color: #374151;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    border-bottom: 1px solid #e5eeee;
+}
+
+
+/* ========================================
+   TABLE BODY
+======================================== */
+
+.timetable-table td {
+    padding: 17px 18px;
+
+    color: #374151;
+
+    font-size: 14px;
+
+    border-bottom: 1px solid #edf2f2;
+}
+
+.timetable-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.timetable-table tbody tr:hover {
+    background-color: #f8fbfb;
+}
+
+.timetable-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* ========================================
+   SUBJECT
+======================================== */
+
+.timetable-subject {
+    color: #1f2937;
+
+    font-size: 14px;
+}
+
+
+/* ========================================
+   DETAILS
+======================================== */
+
+.timetable-detail {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.timetable-detail svg {
+    flex-shrink: 0;
+
+    color: var(--primary-color);
+
+    font-size: 14px;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+    .student-timetable-header h1 {
+        font-size: 27px;
+    }
+
+    .student-timetable-header p {
+        font-size: 14px;
+    }
+
+    .timetable-header-icon {
+        display: none;
+    }
+
+    .timetable-card-header {
+        padding: 18px;
+    }
+
+}

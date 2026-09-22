@@ -1,0 +1,140 @@
+.manage-classes-page {
+  padding: 30px;
+  background-color: #f8fafc;
+  min-height: calc(100vh - 120px);
+}
+
+.cls-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 24px 30px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  margin-bottom: 24px;
+}
+
+.cls-header h1 {
+  font-size: 26px;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+  font-weight: 700;
+}
+
+.cls-header p {
+  color: #64748b;
+  margin: 0;
+  font-size: 14px;
+}
+
+.cls-icon-wrapper {
+  font-size: 32px;
+  color: #0f766e;
+  background: #f0fdfa;
+  padding: 14px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cls-grid-layout {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 24px;
+}
+
+.cls-form-card, .cls-list-card {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.cls-form-card h2, .list-header h2 {
+  font-size: 18px;
+  color: #1e293b;
+  margin: 0 0 20px 0;
+  font-weight: 600;
+}
+
+.cls-form-card .form-group {
+  margin-bottom: 16px;
+}
+
+.cls-form-card label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 6px;
+}
+
+.cls-form-card input,
+.cls-form-card select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.cls-form-card input:focus,
+.cls-form-card select:focus {
+  border-color: #0f766e;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
+}
+
+.badge-class {
+  background: #fef3c7;
+  color: #b45309;
+  font-weight: 700;
+}
+
+.strength-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f1f5f9;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #475569;
+}
+
+.cls-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.cls-table th {
+  background: #f8fafc;
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.cls-table td {
+  padding: 14px 16px;
+  font-size: 14px;
+  color: #334155;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+
+.cls-table tr:hover {
+  background: #f8fafc;
+}
+
+@media (max-width: 1024px) {
+  .cls-grid-layout {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,89 @@
+.not-found-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8fafc;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.not-found-card {
+  max-width: 480px;
+  width: 100%;
+  background: #ffffff;
+  padding: 44px 32px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  border: 1px solid #e2e8f0;
+}
+
+.not-found-icon {
+  font-size: 54px;
+  color: #f59e0b;
+  margin-bottom: 16px;
+  display: inline-flex;
+}
+
+.not-found-code {
+  font-size: 64px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+  line-height: 1;
+}
+
+.not-found-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #334155;
+  margin: 0 0 10px 0;
+}
+
+.not-found-desc {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0 0 28px 0;
+  line-height: 1.5;
+}
+
+.not-found-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.not-found-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.btn-back {
+  background-color: #f1f5f9;
+  color: #475569;
+}
+
+.btn-back:hover {
+  background-color: #e2e8f0;
+  color: #1e293b;
+}
+
+.btn-home {
+  background-color: #0f766e;
+  color: #ffffff;
+}
+
+.btn-home:hover {
+  background-color: #0d635d;
+}

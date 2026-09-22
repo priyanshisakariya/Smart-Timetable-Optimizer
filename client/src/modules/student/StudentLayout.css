@@ -1,0 +1,54 @@
+/* =========================
+   STUDENT LAYOUT
+========================= */
+
+.student-layout {
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    background-color: #f4fafa;
+}
+
+
+/* =========================
+   STUDENT BODY
+========================= */
+
+.student-body {
+    flex: 1;
+
+    display: flex;
+
+    width: 100%;
+}
+
+
+/* =========================
+   STUDENT CONTENT
+========================= */
+
+.student-content {
+    flex: 1;
+
+    padding: 30px;
+
+    min-width: 0;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .student-content {
+        padding: 20px;
+    }
+
+}

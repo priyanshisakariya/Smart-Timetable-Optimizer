@@ -1,0 +1,106 @@
+.my-timetable {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.timetable-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+}
+
+.timetable-header h1 {
+    margin: 0;
+
+    color: var(--primary-color);
+
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.timetable-header p {
+    margin-top: 8px;
+
+    color: var(--text-secondary);
+
+    font-size: 16px;
+}
+
+.timetable-icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background-color: #e6f7f5;
+
+    color: var(--primary-color);
+
+    font-size: 24px;
+}
+
+.timetable-card {
+    width: 100%;
+
+    background-color: var(--white);
+
+    border-radius: 14px;
+
+    padding: 10px;
+
+    box-shadow: 0 5px 20px rgba(15, 118, 110, 0.10);
+
+    overflow-x: auto;
+}
+
+.timetable-card table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 750px;
+}
+
+.timetable-card th {
+    padding: 16px;
+
+    background-color: var(--primary-color);
+
+    color: var(--white);
+
+    text-align: left;
+
+    font-size: 14px;
+}
+
+.timetable-card td {
+    padding: 16px;
+
+    border-bottom: 1px solid #e5eeee;
+
+    color: #374151;
+
+    font-size: 14px;
+}
+
+.timetable-card tbody tr:hover {
+    background-color: #f3faf9;
+}
+
+@media (max-width: 600px) {
+
+    .timetable-header h1 {
+        font-size: 26px;
+    }
+
+    .timetable-icon {
+        display: none;
+    }
+}

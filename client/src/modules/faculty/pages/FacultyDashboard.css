@@ -1,0 +1,312 @@
+/* =========================
+   FACULTY DASHBOARD
+========================= */
+
+.faculty-dashboard {
+    width: 100%;
+    max-width: 1150px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================
+   WELCOME HEADER
+========================= */
+
+.faculty-welcome {
+    margin-bottom: 30px;
+}
+
+.faculty-welcome h1 {
+    margin: 0;
+
+    color: var(--primary-color);
+
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.faculty-welcome p {
+    margin-top: 8px;
+
+    color: var(--text-secondary);
+
+    font-size: 16px;
+}
+
+
+/* =========================
+   SUMMARY CARDS
+========================= */
+
+.faculty-cards {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 22px;
+
+    margin-bottom: 30px;
+}
+
+
+.faculty-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 25px;
+
+    background-color: var(--white);
+
+    border-radius: 14px;
+
+    border-left: 5px solid var(--primary-color);
+
+    box-shadow: 0 5px 20px rgba(15, 118, 110, 0.10);
+
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+
+.faculty-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 25px rgba(15, 118, 110, 0.16);
+}
+
+
+/* =========================
+   CARD ICON
+========================= */
+
+.card-icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background-color: #e6f7f5;
+
+    border-radius: 12px;
+
+    color: var(--primary-color);
+
+    font-size: 23px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================
+   CARD CONTENT
+========================= */
+
+.card-content h3 {
+    margin: 0 0 8px;
+
+    color: var(--text-secondary);
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+
+.card-content p {
+    margin: 0;
+
+    color: var(--primary-color);
+
+    font-size: 30px;
+
+    font-weight: 700;
+}
+
+
+/* =========================
+   SCHEDULE SECTION
+========================= */
+
+.schedule-section {
+    background-color: var(--white);
+
+    border-radius: 14px;
+
+    padding: 28px;
+
+    box-shadow: 0 5px 20px rgba(15, 118, 110, 0.10);
+}
+
+
+/* =========================
+   SECTION HEADER
+========================= */
+
+.section-header {
+    margin-bottom: 20px;
+}
+
+
+.section-header h2 {
+    margin: 0;
+
+    color: var(--primary-color);
+
+    font-size: 22px;
+
+    font-weight: 700;
+}
+
+
+.section-header p {
+    margin-top: 6px;
+
+    color: var(--text-secondary);
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   SCHEDULE LIST
+========================= */
+
+.schedule-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+/* =========================
+   SCHEDULE ITEM
+========================= */
+
+.schedule-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 18px;
+
+    background-color: #f5fbfa;
+
+    border-radius: 10px;
+
+    border-left: 4px solid var(--primary-color);
+
+    transition: background-color 0.2s ease,
+                transform 0.2s ease;
+}
+
+
+.schedule-item:hover {
+    background-color: #edf8f6;
+
+    transform: translateX(3px);
+}
+
+
+/* =========================
+   TIME
+========================= */
+
+.schedule-time {
+    min-width: 100px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.schedule-time strong {
+    color: var(--primary-color);
+
+    font-size: 15px;
+}
+
+
+.schedule-time span {
+    color: var(--text-secondary);
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   DETAILS
+========================= */
+
+.schedule-details h3 {
+    margin: 0 0 5px;
+
+    color: #1f2937;
+
+    font-size: 16px;
+}
+
+
+.schedule-details p {
+    margin: 0;
+
+    color: var(--text-secondary);
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    .faculty-cards {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .faculty-dashboard {
+        padding: 5px;
+    }
+
+
+    .faculty-welcome h1 {
+        font-size: 26px;
+    }
+
+
+    .schedule-section {
+        padding: 20px;
+    }
+
+
+    .schedule-item {
+        gap: 15px;
+    }
+
+
+    .schedule-time {
+        min-width: 80px;
+    }
+
+}

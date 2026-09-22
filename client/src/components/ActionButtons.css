@@ -1,0 +1,96 @@
+/* =========================================================
+   REUSABLE DATA TABLE ACTION BUTTONS (EDIT / DELETE)
+   ========================================================= */
+
+.table-action-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+.table-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.18s ease-in-out;
+  line-height: 1.2;
+  white-space: nowrap;
+  font-family: inherit;
+  outline: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.table-action-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.table-action-btn .btn-action-icon {
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.table-action-btn .btn-action-text {
+  font-size: 13px;
+  letter-spacing: 0.2px;
+}
+
+/* =========================================================
+   EDIT BUTTON (MINT / TEAL PILL)
+   ========================================================= */
+.table-action-btn.btn-action-edit {
+  background-color: #f0fdfa;
+  border: 1px solid #5eead4;
+  color: #0f766e;
+}
+
+.table-action-btn.btn-action-edit .btn-action-icon {
+  color: #0f766e;
+}
+
+.table-action-btn.btn-action-edit:hover {
+  background-color: #ccfbf1;
+  border-color: #2dd4bf;
+  color: #0d635d;
+  box-shadow: 0 2px 6px rgba(15, 118, 110, 0.15);
+  transform: translateY(-1px);
+}
+
+.table-action-btn.btn-action-edit:active {
+  transform: translateY(0);
+  background-color: #bbf7d0;
+}
+
+/* =========================================================
+   DELETE BUTTON (SOFT PINK / RED PILL)
+   ========================================================= */
+.table-action-btn.btn-action-delete {
+  background-color: #fef2f2;
+  border: 1px solid #fca5a5;
+  color: #dc2626;
+}
+
+.table-action-btn.btn-action-delete .btn-action-icon {
+  color: #dc2626;
+}
+
+.table-action-btn.btn-action-delete:hover {
+  background-color: #fee2e2;
+  border-color: #f87171;
+  color: #b91c1c;
+  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.15);
+  transform: translateY(-1px);
+}
+
+.table-action-btn.btn-action-delete:active {
+  transform: translateY(0);
+  background-color: #fecdd3;
+}

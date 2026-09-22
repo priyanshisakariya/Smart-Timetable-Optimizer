@@ -1,0 +1,159 @@
+.manage-semesters-page {
+  padding: 30px;
+  background-color: #f8fafc;
+  min-height: calc(100vh - 120px);
+}
+
+.sem-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 24px 30px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  margin-bottom: 24px;
+}
+
+.sem-header h1 {
+  font-size: 26px;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+  font-weight: 700;
+}
+
+.sem-header p {
+  color: #64748b;
+  margin: 0;
+  font-size: 14px;
+}
+
+.sem-icon-wrapper {
+  font-size: 32px;
+  color: #0f766e;
+  background: #f0fdfa;
+  padding: 14px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sem-grid-layout {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 24px;
+}
+
+.sem-form-card, .sem-list-card {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.sem-form-card h2, .list-header h2 {
+  font-size: 18px;
+  color: #1e293b;
+  margin: 0 0 20px 0;
+  font-weight: 600;
+}
+
+.sem-form-card .form-group {
+  margin-bottom: 16px;
+}
+
+.sem-form-card label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 6px;
+}
+
+.sem-form-card input,
+.sem-form-card select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.sem-form-card input:focus,
+.sem-form-card select:focus {
+  border-color: #0f766e;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
+}
+
+.filter-search-group {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filter-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f1f5f9;
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: #64748b;
+}
+
+.filter-dropdown select {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 13px;
+  color: #334155;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.sem-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.sem-table th {
+  background: #f8fafc;
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.sem-table td {
+  padding: 14px 16px;
+  font-size: 14px;
+  color: #334155;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+
+.sem-table tr:hover {
+  background: #f8fafc;
+}
+
+.badge-sem {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+
+@media (max-width: 1024px) {
+  .sem-grid-layout {
+    grid-template-columns: 1fr;
+  }
+}

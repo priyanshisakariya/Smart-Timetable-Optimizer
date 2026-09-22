@@ -1,0 +1,262 @@
+.manage-departments-page {
+  padding: 30px;
+  background-color: #f8fafc;
+  min-height: calc(100vh - 120px);
+}
+
+.dept-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 24px 30px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  margin-bottom: 24px;
+}
+
+.dept-header h1 {
+  font-size: 26px;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+  font-weight: 700;
+}
+
+.dept-header p {
+  color: #64748b;
+  margin: 0;
+  font-size: 14px;
+}
+
+.dept-icon-wrapper {
+  font-size: 32px;
+  color: #0f766e;
+  background: #f0fdfa;
+  padding: 14px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dept-grid-layout {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 24px;
+}
+
+.dept-form-card, .dept-list-card {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.dept-form-card h2, .list-header h2 {
+  font-size: 18px;
+  color: #1e293b;
+  margin: 0 0 20px 0;
+  font-weight: 600;
+}
+
+.dept-form-card .form-group {
+  margin-bottom: 16px;
+}
+
+.dept-form-card label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 6px;
+}
+
+.dept-form-card input,
+.dept-form-card select,
+.dept-form-card textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.dept-form-card input:focus,
+.dept-form-card select:focus,
+.dept-form-card textarea:focus {
+  border-color: #0f766e;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
+}
+
+.form-button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.submit-btn {
+  flex: 1;
+  background: #0f766e;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.submit-btn:hover {
+  background: #0d9488;
+}
+
+.cancel-btn {
+  background: #e2e8f0;
+  color: #475569;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background: #cbd5e1;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f1f5f9;
+  padding: 8px 14px;
+  border-radius: 8px;
+  width: 260px;
+  color: #64748b;
+}
+
+.search-bar input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 13px;
+  width: 100%;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.dept-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.dept-table th {
+  background: #f8fafc;
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.dept-table td {
+  padding: 14px 16px;
+  font-size: 14px;
+  color: #334155;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+
+.dept-table tr:hover {
+  background: #f8fafc;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-code {
+  background: #e0f2fe;
+  color: #0284c7;
+}
+
+.status-active {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.status-inactive {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.actions-cell {
+  white-space: nowrap;
+}
+
+.btn-edit, .btn-delete {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin-right: 4px;
+  transition: background 0.2s;
+}
+
+.btn-edit {
+  color: #0284c7;
+}
+
+.btn-edit:hover {
+  background: #e0f2fe;
+}
+
+.btn-delete {
+  color: #dc2626;
+}
+
+.btn-delete:hover {
+  background: #fee2e2;
+}
+
+.loading-text, .empty-text {
+  text-align: center;
+  padding: 40px;
+  color: #64748b;
+  font-size: 15px;
+}
+
+@media (max-width: 1024px) {
+  .dept-grid-layout {
+    grid-template-columns: 1fr;
+  }
+}
