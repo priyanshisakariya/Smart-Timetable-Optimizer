@@ -1,12 +1,10 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import AdminLayout from "../layout/AdminLayout";
 import {
   FaClock,
   FaCalendarAlt,
   FaLightbulb,
   FaExclamationTriangle,
-  FaEdit,
-  FaTrash,
   FaPlus,
   FaCheckCircle,
   FaTimes,
@@ -48,29 +46,61 @@ function ManageTimeSlot() {
   const [filterDay, setFilterDay] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [totalItems, setTotalItems] = useState(0);
+  // Pagination: show 5 time slots per page in the listing
+  const [itemsPerPage] = useState(5);
 
-  const fetchTimeSlots = async () => {
-    try {
-      setLoading(true);
-      const response = await fetch("http://localhost:5000/api/auth/timeslots");
-      const data = await response.json();
-      if (response.ok) {
-        setTimeSlotList(Array.isArray(data) ? data : []);
-      } else {
-        console.error("Failed to fetch time slots:", data.message);
+  const fetchTimeSlots = useCallback(
+    async (page, day = filterDay, limit = itemsPerPage) => {
+      try {
+        setLoading(true);
+        const url = new URL("http://localhost:5000/api/auth/timeslots");
+        url.searchParams.set("page", String(page));
+        url.searchParams.set("limit", String(limit));
+        if (day) {
+          url.searchParams.set("day", day);
+        }
+
+        const response = await fetch(url.toString());
+        const data = await response.json();
+        if (response.ok) {
+          const payload = Array.isArray(data) ? data : data.data || [];
+          const safePayload = Array.isArray(payload) ? payload : [];
+          const serverTotalItems = Number(data?.totalItems || safePayload.length || 0);
+          const serverTotalPages = Number(
+            data?.totalPages || Math.max(1, Math.ceil(serverTotalItems / limit)) || 1
+          );
+
+          setTimeSlotList(safePayload);
+          setTotalItems(serverTotalItems);
+          setTotalPages(Number.isFinite(serverTotalPages) && serverTotalPages > 0 ? serverTotalPages : 1);
+        } else {
+          console.error("Failed to fetch time slots:", data.message);
+          setTimeSlotList([]);
+          setTotalItems(0);
+          setTotalPages(1);
+        }
+      } catch (error) {
+        console.error("Fetch Time Slots Error:", error);
         setTimeSlotList([]);
+        setTotalItems(0);
+        setTotalPages(1);
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      console.error("Fetch Time Slots Error:", error);
-      setTimeSlotList([]);
-    } finally {
-      setLoading(false);
-    }
-  };
+    },
+    [filterDay, itemsPerPage]
+  );
 
   useEffect(() => {
-    fetchTimeSlots();
-  }, []);
+    const timer = setTimeout(() => {
+      void fetchTimeSlots(currentPage, filterDay, itemsPerPage);
+    }, 0);
+
+    return () => clearTimeout(timer);
+  }, [currentPage, filterDay, itemsPerPage, fetchTimeSlots]);
 
   useEffect(() => {
     if (errorMessage || successMessage) {
@@ -227,12 +257,6 @@ function ManageTimeSlot() {
     setErrorMessage("");
   };
 
-  const displayedList = filterDay
-    ? timeSlotList.filter(
-        (s) => s.day?.toLowerCase() === filterDay.toLowerCase()
-      )
-    : timeSlotList;
-
   const dayOrder = [
     "Monday",
     "Tuesday",
@@ -242,11 +266,19 @@ function ManageTimeSlot() {
     "Saturday",
   ];
 
-  const sortedList = [...displayedList].sort((a, b) => {
+  const sortedList = [...timeSlotList].sort((a, b) => {
     const dayDiff = dayOrder.indexOf(a.day) - dayOrder.indexOf(b.day);
     if (dayDiff !== 0) return dayDiff;
     return timeToMinutes(a.startTime) - timeToMinutes(b.startTime);
   });
+
+  const paginatedList = sortedList.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  const startIndex = totalItems === 0 ? 0 : (currentPage - 1) * itemsPerPage + 1;
+  const endIndex = totalItems === 0 ? 0 : Math.min(currentPage * itemsPerPage, totalItems);
 
   return (
     <AdminLayout>
@@ -392,7 +424,10 @@ function ManageTimeSlot() {
               <select
                 id="ts-day-filter"
                 value={filterDay}
-                onChange={(e) => setFilterDay(e.target.value)}
+                onChange={(e) => {
+                  setFilterDay(e.target.value);
+                  setCurrentPage(1);
+                }}
               >
                 <option value="">All Days ({timeSlotList.length})</option>
                 <option value="Monday">Monday</option>
@@ -431,7 +466,7 @@ function ManageTimeSlot() {
                   </tr>
                 </thead>
                 <tbody>
-                  {sortedList.map((item) => {
+                  {paginatedList.map((item) => {
                     const startMin = timeToMinutes(item.startTime);
                     const endMin = timeToMinutes(item.endTime);
                     const durationMins = endMin - startMin;
@@ -478,6 +513,32 @@ function ManageTimeSlot() {
                   })}
                 </tbody>
               </table>
+
+              {totalItems > 0 && (
+                <div className="pagination-controls">
+                  <button
+                    type="button"
+                    className="page-btn"
+                    onClick={() => setCurrentPage((page) => Math.max(1, page - 1))}
+                    disabled={currentPage === 1}
+                  >
+                    Previous
+                  </button>
+
+                  <span className="page-indicator">
+                    {startIndex} to {endIndex} of {totalItems}
+                  </span>
+
+                  <button
+                    type="button"
+                    className="page-btn"
+                    onClick={() => setCurrentPage((page) => Math.min(totalPages, page + 1))}
+                    disabled={currentPage === totalPages}
+                  >
+                    Next
+                  </button>
+                </div>
+              )}
             </div>
           )}
         </div>

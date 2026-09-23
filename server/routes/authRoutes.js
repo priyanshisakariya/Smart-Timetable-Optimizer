@@ -73,7 +73,7 @@ router.post("/register", async (req, res) => {
       return res.status(400).json({
         message: "Student mobile number must be exactly 10 digits",
       });
-    }
+    } 
 
     const existingUser = await User.findOne({ email: studentEmail });
     if (existingUser) {
@@ -1579,10 +1579,48 @@ router.put("/student-profile/:id", async (req, res) => {
 // ======================================================
 
 // GET ALL TIME SLOTS
+// Pagination API: supports ?page=1&limit=5&day=Monday and returns metadata plus paginated data.
+// If page/limit are not provided, it still returns the full array for backward compatibility.
 router.get("/timeslots", async (req, res) => {
   try {
-    const timeSlots = await TimeSlot.find({}).sort({ day: 1, startTime: 1 });
-    res.status(200).json(timeSlots);
+    const requestedPage = Number(req.query.page);
+    const requestedLimit = Number(req.query.limit);
+    const requestedDay = req.query.day;
+
+    const filter = {};
+    if (requestedDay) {
+      filter.day = {
+        $regex: `^\\s*${escapeRegex(String(requestedDay))}\\s*$`,
+        $options: "i",
+      };
+    }
+
+    const hasPagination = Number.isInteger(requestedPage) && requestedPage > 0 &&
+      Number.isInteger(requestedLimit) && requestedLimit > 0;
+
+    if (!hasPagination) {
+      const timeSlots = await TimeSlot.find(filter).sort({ day: 1, startTime: 1 });
+      return res.status(200).json(timeSlots);
+    }
+
+    const page = requestedPage;
+    const limit = requestedLimit;
+    const skip = (page - 1) * limit;
+
+    const [timeSlots, totalItems] = await Promise.all([
+      TimeSlot.find(filter).sort({ day: 1, startTime: 1 }).skip(skip).limit(limit),
+      TimeSlot.countDocuments(filter),
+    ]);
+
+    const totalPages = Math.ceil(totalItems / limit);
+
+    return res.status(200).json({
+      page,
+      limit,
+      totalItems,
+      totalPages,
+      data: timeSlots,
+    });
   } catch (error) {
     console.error("Get Time Slots Error:", error);
     res.status(500).json({ message: "Failed to fetch time slots", error: error.message });

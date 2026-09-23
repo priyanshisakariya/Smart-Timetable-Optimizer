@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import AdminLayout from "../layout/AdminLayout";
-import { FaBook, FaPlus, FaEdit, FaTrash, FaSearch, FaUserTie } from "react-icons/fa";
+import { FaBook, FaPlus, FaEdit,FaSearch, FaUserTie } from "react-icons/fa";
 import ActionButtons from "../../../components/ActionButtons";
 import "./ManageSubject.css";
 import axios from "axios";
@@ -58,7 +58,7 @@ function ManageSubject() {
     if (!deptName) {
       setSemesters([]);
       return;
-    }
+    } //add pagination to an existing listing page and tell me first kya number ni line ma add kryu 6 and then implements so i take screenshot and 
     try {
       const res = await axios.get(`http://localhost:5000/api/auth/semesters/by-department/${encodeURIComponent(deptName)}`);
       const sems = Array.isArray(res.data) ? res.data : [];
